@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<RootNamespace>Cirreum.Runtime</RootNamespace>
+		<Description>Runtime Extensions package for Cirreum Identity Oidc — app-facing AddOidcIdentity() and MapOidcIdentity() extensions that wire the Oidc identity provider from configuration.</Description>
+		<PackageTags>cirreum;runtime;identity;oidc;providers</PackageTags>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Cirreum.Runtime.IdentityProvider" Version="1.0.1" />
+		<PackageReference Include="Cirreum.Identity.Oidc" Version="1.0.0" />
+	</ItemGroup>
+
+</Project>
