@@ -11,8 +11,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Cirreum.Runtime.IdentityProvider" Version="1.1.0" />
-		<PackageReference Include="Cirreum.Identity.Oidc" Version="1.0.7" />
+		<PackageReference Include="Cirreum.Runtime.IdentityProvider" Version="1.1.1" />
+		<PackageReference Include="Cirreum.Identity.Oidc" Version="1.1.0" />
 	</ItemGroup>
 
 </Project>
