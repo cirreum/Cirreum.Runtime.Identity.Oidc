@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- The README's provisioner walkthrough taught the pre-`Cirreum.IdentityProvider 2.0.0` mental
+  model: it set a `Roles` property on the app's user type without showing the
+  `IProvisionedIdentity.Claims` projection that actually mints it. Since roles stopped being a
+  privileged framework concept, setting `Roles` alone puts nothing in the token — a silent
+  no-op for anyone copying the sample. The README now leads with the provisioned-identity type
+  and its `Claims` projection. Documentation only; no API or behavior change.
+
 ## [1.0.7] - 2026-07-23
 
 ### Updated

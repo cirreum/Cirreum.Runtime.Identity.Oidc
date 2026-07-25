@@ -45,6 +45,27 @@ app.MapOidcIdentity();
 app.Run();
 ```
 
+### The provisioned-identity type
+
+Your user type implements `IProvisionedIdentity`, and **its `Claims` projection is what reaches the token** — the framework mints exactly what this returns. Roles are one claim among them, not a privileged concept, so a property named `Roles` on your own type mints nothing until you project it:
+
+```csharp
+using Cirreum.Identity.Provisioning;
+
+public sealed class BorrowerUser : IProvisionedIdentity {
+
+    public required string ExternalUserId { get; init; }
+    public string? Email { get; init; }
+    public required IReadOnlyList<string> Roles { get; init; }
+
+    public IReadOnlyList<IdentityClaim> Claims => [
+        IdentityClaim.Roles(Roles)
+    ];
+}
+```
+
+Whether a user *must* carry roles is expressed by your own type — a `required` constructor parameter makes a roleless user a compile error — not by a framework guard. Add further claims (`IdentityClaim.Name(...)`, `IdentityClaim.Of("tenant", ...)`) as your app needs; each lands in the token under a collision-safe `custom*` name.
+
 ### App-provided provisioner class
 
 Derive from the base that matches the instance's onboarding model:
